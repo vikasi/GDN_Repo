@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rich-page>
+    <field id="author">admin</field>
+    <field id="created">2017-09-05 10:38:15.144 +0530</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width: 50%;">
+  <p id="polarion_client4"></p>
+  <div id="polarion_client18" class="polarion-rp-widget-part" data-widget="com.polarion.scriptBlock">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="script">
+        <sub id="script" style="white-space:pre;">&lt;style&gt;
+
+.image {
+	padding: 15px;
+}
+
+.icon  {
+	color:#0E4A90;
+    padding: 0px 5px;
+    font-weight: bold;
+}
+.polarion-rpe-content h1 {
+    border-bottom: 4px solid #ffffff;
+}
+.polarion-rpe-content h2 {
+    font-size: 23px;
+    background-color: #f5f5f5;
+    padding: 8px 14px 8px 14px;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+
+&lt;/style&gt;
+
+
+<div class="polarion-rp-column" style="width: 50%;">
+  <h2 id="polarion_client7">Project Overview</h2>
+  <p id="polarion_client9">
+    <span style="font-size: 9pt;color: #999999;line-height: 1.5;">This section describes general information about this project. The project properties are defined in Administration (administrator permissions required for access).</span>
+  </p>
+  <p id="polarion_client11" style="margin-left: 0px;">
+    <span class="polarion-rp-inline-widget" data-widget="com.polarion.scriptInline">
+      <span class="polarion-rp-widget-parameters" style="display: none;">
+        <sub id="script">
+          <sub id="script" style="white-space:pre;">&lt;b&gt;Lead:&lt;/b&gt;  $page.fields.project.get().fields().lead().render()</sub>
+        </sub>
+      </span>
+    </span>
+  </p>
+  <p id="polarion_client13" style="margin-left: 0px;">
+    <span class="polarion-rp-inline-widget" data-widget="com.polarion.scriptInline">
+      <span class="polarion-rp-widget-parameters" style="display: none;">
+        <sub id="script">
+          <sub id="script" style="white-space:pre;">#set($fields=$page.fields.project.get().fields())
+#if ($fields.finish().get())
+	#set($finish =$fields.finish().render())
+#else
+  	#set($finish =&quot;--&quot;)
+#end
+&lt;b&gt;Start/Finish:&lt;/b&gt; $fields.start().render() / $finish</sub>
+        </sub>
+      </span>
+    </span>
+  </p>
+  <p id="polarion_client15" style="margin-left: 0px;">
+    <span class="polarion-rp-inline-widget" data-widget="com.polarion.scriptInline">
+      <span class="polarion-rp-widget-parameters" style="display: none;">
+        <sub id="script">
+          <sub id="script" style="white-space:pre;">&lt;b&gt;Active:&lt;/b&gt; $page.fields.project.get.fields().active().render</sub>
+        </sub>
+      </span>
+    </span>
+  </p>
+  <p id="polarion_client5"></p>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<div class="polarion-rp-column" style="width: 50%;">
+  <h2 id="polarion_client42">My Tasks</h2>
+  <div id="polarion_client41" class="polarion-rp-widget-part" data-widget="com.polarion.table">
+    <span class="polarion-rp-widget-parameters" style="display: none;">
+      <sub id="dataSet">
+        <sub id="prototype">WorkItem</sub>
+        <sub id="queryType">lucene</sub>
+        <sub id="luceneQuery" style="white-space:pre;">type:task AND assignee.id:$[user.id]</sub>
+        <sub id="children">
+          <sub id="columns">
+            <sub>
+              <sub id="id">id</sub>
+            </sub>
+            <sub>
+              <sub id="id">title</sub>
+            </sub>
+            <sub>
+              <sub id="id">type</sub>
+            </sub>
+            <sub>
+              <sub id="id">status</sub>
+            </sub>
+            <sub>
+              <sub id="id">severity</sub>
+            </sub>
+          </sub>
+          <sub id="sortBy">
+            <sub>
+              <sub id="id">status</sub>
+              <sub id="descending">false</sub>
+            </sub>
+          </sub>
+        </sub>
+      </sub>
+      <sub id="advanced">
+        <sub id="top">50</sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_client6"></p>
+</div>
+<div class="polarion-rp-column" style="width: 50%;">
+  <h2 id="polarion_client21">Open Issues</h2>
+  <div id="polarion_client19" class="polarion-rp-widget-part" data-widget="com.polarion.table">
+    <span class="polarion-rp-widget-parameters" style="display: none;">
+      <sub id="dataSet">
+        <sub id="prototype">WorkItem</sub>
+        <sub id="queryType">lucene</sub>
+        <sub id="luceneQuery" style="white-space:pre;">type:issue AND assignee.id:$[user.id]</sub>
+        <sub id="children">
+          <sub id="columns">
+            <sub>
+              <sub id="id">id</sub>
+            </sub>
+            <sub>
+              <sub id="id">title</sub>
+            </sub>
+            <sub>
+              <sub id="id">type</sub>
+            </sub>
+            <sub>
+              <sub id="id">status</sub>
+            </sub>
+            <sub>
+              <sub id="id">severity</sub>
+            </sub>
+          </sub>
+          <sub id="sortBy">
+            <sub>
+              <sub id="id">status</sub>
+              <sub id="descending">false</sub>
+            </sub>
+          </sub>
+        </sub>
+      </sub>
+      <sub id="advanced">
+        <sub id="top">50</sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_client16"></p>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<div class="polarion-rp-column" style="width: 50%;">
+  <h2 id="polarion_client27">Activity Stream</h2>
+  <div id="polarion_client22" class="polarion-rp-widget-part" data-widget="com.polarion.activityStream">
+    <span class="polarion-rp-widget-parameters"></span>
+  </div>
+  <p id="polarion_client26"></p>
+</div>
+<div class="polarion-rp-column" style="width: 50%;">
+  <h2 id="polarion_client3">Plan Overview</h2>
+  <p id="polarion_client23"></p>
+  <p id="polarion_3">
+    <span class="polarion-rp-inline-widget" data-widget="com.polarion.planOpenInTableButton">
+      <span class="polarion-rp-widget-parameters">
+        <sub id="plan">
+          <sub id="paths">
+            <sub>Version_1_0</sub>
+          </sub>
+        </sub>
+      </span>
+    </span>
+  </p>
+  <div id="polarion_client1" class="polarion-rp-widget-part" data-widget="com.polarion.planLabel">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="plan">
+        <sub id="paths">
+          <sub>Version_1_0</sub>
+        </sub>
+      </sub>
+      <sub id="childTemplate"></sub>
+      <sub id="showAddButton">true</sub>
+    </span>
+  </div>
+</div>
+<div class="polarion-rp-row-separator"></div>]]></field>
+    <field id="title">Default Space</field>
+</rich-page>
